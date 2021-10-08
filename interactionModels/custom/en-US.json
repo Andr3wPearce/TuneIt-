@@ -1,0 +1,170 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "tune it",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "InstrumentRecieved",
+          "slots": [
+            {
+              "name": "pitch",
+              "type": "InstrumentList"
+            }
+          ],
+          "samples": [
+            "play an {pitch}",
+            "play one {pitch}",
+            "play a {pitch}",
+            "do {pitch}",
+            "play the {pitch}",
+            "{pitch}",
+            "play {pitch}"
+          ]
+        },
+        {
+          "name": "YesOrNoIntent",
+          "slots": [
+            {
+              "name": "response",
+              "type": "ResponseList"
+            }
+          ],
+          "samples": [
+            "{response}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "skilled pitch",
+                "synonyms": [
+                  "a skilled pitch",
+                  "B. flat",
+                  "B. Flat",
+                  "skilled",
+                  "normal pitch",
+                  "normal pitch",
+                  "B flat",
+                  "regular"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "beginner pitch",
+                "synonyms": [
+                  "a beginner pitch",
+                  "beginner",
+                  "F"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "full band pitch",
+                "synonyms": [
+                  "a full band pitch",
+                  "full band",
+                  "A"
+                ]
+              }
+            }
+          ],
+          "name": "InstrumentList"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "no"
+              }
+            },
+            {
+              "name": {
+                "value": "yes"
+              }
+            }
+          ],
+          "name": "ResponseList"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "InstrumentRecieved",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "pitch",
+              "type": "InstrumentList",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.349534525927.1499160101133"
+              }
+            }
+          ]
+        },
+        {
+          "name": "YesOrNoIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "response",
+              "type": "ResponseList",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.88304975208.519043848038"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.349534525927.1499160101133",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What pitch would you like to hear?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.88304975208.519043848038",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Would you like to hear it again?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "18"
+}
